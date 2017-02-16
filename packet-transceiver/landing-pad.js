@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 app.get('/:timestamp',function(req,res){
-    console.log(req.params.timestamp);
-    eval(require('locus'))
-    res.send(JSON.stringify({ a: 1 }));
+    difference = Date.now() - parseInt(req.params.timestamp)
+    
+    res.send(JSON.stringify({ 'difference': difference }));
 
 })
 app.listen(port,function(){
